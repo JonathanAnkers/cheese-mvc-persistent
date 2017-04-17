@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${menuitem} and ${menuitem.size()}">no Menu Items Yet :(</p>
+
+
+<div>
+    <ul>
+        <li th:each="men : ${menuitem}">
+            <a th:href="@{'/menu/view/' + ${men.id}}" th:text="${men.name}"></a>
+        </li>
+    </ul>
+</div>
+
+<a href="/menu/add">Add Menu</a>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${catcheese} and ${catcheese.size()}">no cheese Cats Yet :(</p>
+
+
+<div>
+    <ul>
+        <li th:each="cat : ${catcheese}">
+            <h2 th:text="${cat.name}"></h2>
+        </li>
+    </ul>
+</div>
+
+<a href="/category/add">Add Category</a>
+
+
+
+
+</body>
+</html>
